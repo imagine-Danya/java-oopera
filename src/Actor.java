@@ -1,10 +1,18 @@
 import java.util.Objects;
 
     public class Actor extends Person {
-        int height;
+        private int height;
 
         Actor(String name, String surname, Gender gender, int height) {
             super(name, surname, gender);
+            this.height = height;
+        }
+
+        public int getHeight() {
+            return height;
+        }
+
+        public void setHeight(int height) {
             this.height = height;
         }
 
@@ -14,14 +22,14 @@ import java.util.Objects;
             if (o == null || getClass() != o.getClass()) return false;
             Actor actor = (Actor) o;
             return height == actor.height &&
-                    Objects.equals(name, actor.name) &&
-                    Objects.equals(surname, actor.surname) &&
-                    gender == actor.gender;
+                    Objects.equals(getName(), actor.getName()) &&
+                    Objects.equals(getSurname(), actor.getSurname()) &&
+                    getGender() == actor.getGender();
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(name, surname, gender, height);
+            return Objects.hash(getName(), getSurname(), getGender(), height);
         }
 
         @Override
@@ -29,5 +37,6 @@ import java.util.Objects;
             return super.toString() + ", Рост: " + height + " см";
         }
     }
+
 
 

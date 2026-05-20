@@ -30,16 +30,17 @@ public class Theatre {
         balletShow.printActors();
 
         System.out.println("Замена актёра в спектакле");
-        show.replaceActor(actor1, actor3);
+        show.replaceActor("Петрова", actor3);
         show.printActors();
 
-        System.out.println("Замена несуществующего актёра");
-        Actor unknownActor = new Actor("неизвестный", "актёр", Gender.MALE, 170);
-        operaShow.replaceActor(unknownActor, actor2);
+        System.out.println("Попытка замены несуществующего актёра");
+        Actor unknownActor = new Actor("Неизвестный", "Актёр", Gender.MALE, 170);
+        operaShow.replaceActor("Смирнов", unknownActor);
         operaShow.printActors();
 
-        System.out.println("Либретто музыкальных спектаклей");
-        operaShow.printLibretto();
-        balletShow.printLibretto();
+        System.out.println("Информация о режиссёрах");
+        show.printDirector();
+        operaShow.printDirector();
+        balletShow.printDirector();
     }
 }
